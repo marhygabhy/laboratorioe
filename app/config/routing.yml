@@ -1,0 +1,24 @@
+editorial:
+    resource: "@EditorialBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+index:
+    path:     /index
+    defaults: { _controller: EditorialBundle:Default:index }
+
+resena:
+    path:     /resena
+    defaults: { _controller: EditorialBundle:Default:resena }
+
+novedades:
+    path:     /novedades
+    defaults: { _controller: EditorialBundle:Default:novedades }
+
+login:
+    path:     /login
+    defaults: { _controller: EditorialBundle:Default:login }

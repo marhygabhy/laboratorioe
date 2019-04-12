@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+{% block title %} Editar Libro {% endblock %} 
+{% block body %}
+<h3 align="center"> Modificar Libro  </h3>
+<hr />
+    <div class="x_content">
+        <br />
+        {{ form_start(edit_form, { 'attr': {'id':'libro','class': 'form-horizontal form-label-left'} }) }} 
+        {{ form_errors(edit_form) }}
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">{{ form_label(edit_form.codigo) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.codigo) }}                
+                {{form_widget(edit_form.codigo,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo">{{ form_label(edit_form.titulo) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.titulo) }}                
+                {{form_widget(edit_form.titulo,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subtitulo">{{ form_label(edit_form.subtitulo) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.subtitulo) }}                
+                {{form_widget(edit_form.subtitulo,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="autor">{{ form_label(edit_form.autor) }}</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.autor) }}                
+                {{form_widget(edit_form.autor,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pagina">{{ form_label(edit_form.pagina) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.pagina) }}                
+                {{form_widget(edit_form.pagina,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isbn">{{ form_label(edit_form.isbn) }} </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.isbn) }}                
+                {{form_widget(edit_form.isbn,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>   
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="formato">{{ form_label(edit_form.formato) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.formato) }}                
+                {{form_widget(edit_form.formato,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcion">{{ form_label(edit_form.descripcion) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.descripcion) }}                
+                {{form_widget(edit_form.descripcion,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ruta">{{ form_label(edit_form.ruta) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.ruta) }}                
+                {{form_widget(edit_form.ruta) }}                
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="coleccion">{{ form_label(edit_form.coleccion) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.coleccion) }}                
+                {{form_widget(edit_form.coleccion,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+    </div>
+<table>
+<tr>
+<th>             
+    <button type="submit" class="btn btn-success">Modificar</button>     
+    {{ form_end(edit_form) }}                  
+</th> 
+<th>
+    {{ form_start(delete_form) }}
+    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar </button>
+    {{ form_end(delete_form) }}
+</th> 
+<th>             
+    <a href="{{ path('libro_index') }}"><input type="button" class="btn btn-primary" value="Volver"></a>
+</th>   
+<tr> 
+</table> 
+{% endblock %}

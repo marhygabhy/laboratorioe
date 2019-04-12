@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %} Crear Colección {% endblock %}
+{% block body %}
+<h3 align="center"> Crear Colección  </h3>
+<hr />
+{{ form_start(form, { 'attr': {'id':'coleccion','class': 'form-horizontal form-label-left'} }) }} 
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="categoria">{{ form_label(form.categoria) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(form.categoria) }}                
+                {{form_widget(form.categoria,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="libro">{{ form_label(form.descripcion) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(form.descripcion) }}                
+                {{form_widget(form.descripcion,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+<table>
+<tr>
+<th>             
+    <button type="submit" class="btn btn-success">Registrar</button>
+</th> 
+<th>             
+    <a href="{{ path('coleccion_index') }}"><input type="button" class="btn btn-primary" value="Volver"></a>
+</th>   
+<tr> 
+</table> 
+        {{ form_end(form) }}                           
+    </div>
+{% endblock %}

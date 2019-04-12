@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+{% block title %} Ver Libros{% endblock %} 
+{% block body %}
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success"> {{ msg }} </div>       
+    {% endfor %}
+
+    {% for msgs in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger">
+            {% for msg in msgs %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <!-- page content -->
+    <div class="x_content">                   
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                <th>Id</th>
+                <td>{{ libro.id }}</td>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ libro.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ libro.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Subtitulo</th>
+                <td>{{ libro.subtitulo }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ libro.autor }}</td>
+            </tr>
+            <tr>
+                <th>Pagina</th>
+                <td>{{ libro.pagina }}</td>
+            </tr>
+            <tr>
+                <th>Isbn</th>
+                <td>{{ libro.isbn }}</td>
+            </tr>
+            <tr>
+                <th>Formato</th>
+                <td>{{ libro.formato }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ libro.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <td><a href="{{ asset('uploads/libros/' ~ libro.ruta) }}">Ver Libro</a></td>
+            </tr>
+            <tr>
+                <th>Colección</th>
+                <td>{{ libro.coleccion }}</td>
+            </tr>
+             <tr>
+                <th>Categoria</th>
+                <td>{{ libro.coleccion.categoria }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>                    
+<table>
+<tr>
+<th>             
+    <a class="btn btn-success" href="{{ path('libro_edit', { 'id': libro.id }) }}"><i class="fa fa-edit m-right-xs"></i>Editar</a>                       
+</th> 
+<th>
+    {{ form_start(delete_form) }}
+    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar </button>
+    {{ form_end(delete_form) }}
+</th> 
+<th>             
+    <a href="{{ path('libro_index') }}"><input type="button" class="btn btn-primary" value="Volver"></a>
+</th>   
+<tr> 
+</table> 
+{% endblock %}

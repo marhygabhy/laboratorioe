@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block title %} Ver Colección {% endblock %} 
+{% block body %}
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success"> {{ msg }} </div>       
+    {% endfor %}
+
+    {% for msgs in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger">
+            {% for msg in msgs %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <!-- page content -->
+    <div class="x_content">                   
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                <th>Id</th>
+                <td>{{ coleccion.id }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ coleccion.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ coleccion.categoria.descripcion }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>                    
+<table>
+<tr>
+<th>             
+    <a class="btn btn-success" href="{{ path('categoria_edit', { 'id': coleccion.id }) }}"><i class="fa fa-edit m-right-xs"></i>Editar</a>                       
+</th> 
+<th>
+    {{ form_start(delete_form) }}
+    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar </button>
+    {{ form_end(delete_form) }}
+</th> 
+<th>             
+    <a href="{{ path('coleccion_index') }}"><input type="button" class="btn btn-primary" value="Volver"></a>
+</th>   
+<tr> 
+</table>  
+{% endblock %}

@@ -1,0 +1,330 @@
+{% block body %}
+
+<head>
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/styles/bootstrap4/bootstrap.min.css')}}">
+<link href="{{ asset('bundles/public/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/plugins/OwlCarousel2-2.2.1/animate.css')}}">
+<link href="{{ asset('bundles/public/plugins/colorbox/colorbox.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/styles/main_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/styles/responsive.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/styles/bootstrap4/bootstrap.min.css')}}">
+<link href="{{ asset('bundles/public/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/styles/contact.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/public/styles/contact_responsive.css')}}">
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/public/images/Editorial/Logotipos/ELE.png')}}">
+<title>{% block title %} Editorial Laboratorio Educativo {% endblock %}</title>
+{% endblock %}
+</head>
+<body>
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
+			<div class="logo"><a href="{{ path('index') }}"><img src="{{ asset('bundles/public/images/Editorial/Logotipos/ELE.png')}}" width="50" style="display:block;margin:auto;"></a></div>
+			<p>Editorial Laboratorio Educativo</p>
+			<nav class="main_nav">
+			</nav>
+			<div class="header_content ml-auto">
+				<div class="shopping">
+					<a href="checkout.html">
+						<div class="avatar">
+							<nav class="main_nav">
+								<ul>
+									<li><a href="{{ path('cliente_new') }}">Registro</a></li>
+								</ul>
+							</nav>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm"><div></div><div></div><div></div></div>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="logo"><a href="{{ path('index') }}">Editorial Laboratorio Educativo<img src="{{ asset('bundles/public/images/Editorial/Logotipos/ELE.png')}}" width="50" style="display:block;margin:auto;"></a></div>
+		<nav class="menu_nav">
+			<ul class="menu_mm">
+				<li class="menu_mm"><a href="{{ path('login') }}">Iniciar Sesión</a></li>
+				<li class="menu_mm"><a href="{{ path('cliente_new') }}">Registrar</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- Home -->
+
+	<div class="home">
+		
+		<!-- Home Slider -->
+
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+				
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({{ asset('bundles/public/images/Editorial/Logotipos/banner2.png)')}}"></div>
+				</div>
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({{ asset('bundles/public/images/Editorial/Logotipos/banner2.png)')}}"></div>
+				</div>
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({{ asset('bundles/public/images/Editorial/Logotipos/banner2.png)')}}"></div>
+				</div>
+
+			</div>
+			
+			<!-- Home Slider Nav -->
+
+			<div class="home_slider_next d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('bundles/public/images/arrow_r.png')}}" alt=""></div>
+
+			<!-- Home Slider Dots -->
+
+			<div class="home_slider_dots_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="home_slider_dots">
+								<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
+									<li class="home_slider_custom_dot active">01.<div></div></li>
+									<li class="home_slider_custom_dot">02.<div></div></li>
+									<li class="home_slider_custom_dot">03.<div></div></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+
+	<!-- Promo -->
+
+	<div class="promo">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<div class="section_subtitle">Editorial Laboratorio Educativo</div>
+						<div class="section_title">Categorias</div>
+					</div>
+				</div>
+			</div>
+			<div class="row promo_container">
+
+				<!-- Promo Item -->
+				<div class="col-lg-4 promo_col">
+					<div class="promo_item">
+						<div class="promo_image">
+							<img src="{{ asset('bundles/public/images/Editorial/libros/Educacion/Educacion y pedagogia.png')}}" alt="">
+							
+						</div>
+						<div class="promo_link"><a href="#">Visualizar</a></div>
+					</div>
+				</div>
+
+				<!-- Promo Item -->
+				<div class="col-lg-4 promo_col">
+					<div class="promo_item">
+						<div class="promo_image">
+							<img src="{{ asset('bundles/public/images/Editorial/Logotipos/2.png')}}" alt="">
+							
+						</div>
+						<div class="promo_link"><a href="#">Visualizar</a></div>
+					</div>
+				</div>
+
+				<!-- Promo Item -->
+				<div class="col-lg-4 promo_col">
+					<div class="promo_item">
+						<div class="promo_image">
+							<img src="{{ asset('bundles/public/images/Editorial/libros/Juvenil/juvenilinfantil.png')}}" alt="">
+							
+						</div>
+						<div class="promo_link"><a href="#">Visualizar</a></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Gallery -->
+
+	<div class="gallery">
+		<div class="gallery_image" style="background-image:url({{ asset('bundles/public/images/Editorial/Logotipos/Logo ELE completo.eps)')}}"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="gallery_title text-center">
+						<ul>
+							<li><a href="#">#Nos-Otros</a></li>
+							<li><a href="#">#Quintaesencia</a></li>
+							<li><a href="#">#Proa</a></li>
+						</ul>
+					</div>
+					<!--<div class="button gallery_button"><a href="#">Contactar</a></div>-->
+				</div>
+			</div>
+		</div>	
+		<div class="gallery_slider_container">
+			
+			<!-- Gallery Slider -->
+			<div class="owl-carousel owl-theme gallery_slider">
+				
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="{{ asset('bundles/public/images/Editorial/varios/America latina.png')}}">
+						<img src="{{ asset('bundles/public/images/Editorial/varios/America latina.png')}}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="{{ asset('bundles/public/images/Editorial/varios/La alternativa pedagogica.png')}}">
+						<img src="{{ asset('bundles/public/images/Editorial/varios/La alternativa pedagogica.png')}}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="{{ asset('bundles/public/images/Editorial/varios/Democracia y escuela.png')}}">
+						<img src="{{ asset('bundles/public/images/Editorial/varios/Democracia y escuela.png')}}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="{{ asset('bundles/public/images/Editorial/varios/Educacion y sociologia.png')}}">
+						<img src="{{ asset('bundles/public/images/Editorial/varios/Educacion y sociologia.png')}}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="{{ asset('bundles/public/images/Editorial/varios/Las batallas del agua.png')}}">
+						<img src="{{ asset('bundles/public/images/Editorial/varios/Las batallas del agua.png')}}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="{{ asset('bundles/public/images/Editorial/varios/Ensayos de pedagogia critica.png')}}">
+						<img src="{{ asset('bundles/public/images/Editorial/varios/Ensayos de pedagogia critica.png')}}" alt="">
+					</a>
+				</div>
+
+			</div>
+		</div>	
+	</div>
+
+	<!-- Google Map -->
+		
+	<div class="map">
+		<div id="google_map" class="google_map">
+			<div class="map_container">
+				<div id="map-canvas"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact Text -->
+
+	<div class="contact_text">
+		<div class="container">
+			<div class="row">
+
+				<!-- Contact Info -->
+				<div class="col-lg-5">
+
+					<div class="contact_info">
+						<div class="contact_title">Información de contacto</div>
+						<div class="contact_info_content">
+							<ul>
+								<li>
+									<div class="contact_info_icon"><img src="{{ asset('bundles/public/images/contact_info_1.png')}}" alt=""></div>
+									<div class="contact_info_text"> Av. Ppal. El Bosque Edif. Pichincha, piso 6. of. 63</div>
+								</li>
+								<li>
+									<div class="contact_info_icon"><img src="{{ asset('bundles/public/images/contact_info_2.png')}}" alt=""></div>
+									<div class="contact_info_text">labeducativo@gmail.com</div>
+								</li>
+								<li>
+									<div class="contact_info_icon"><img src="{{ asset('bundles/public/images/contact_info_3.png')}}" alt=""></div>
+									<div class="contact_info_text">(+58 212) 952 61 50 - 952 65 30</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="footer_social">
+						<ul>
+							<li><a href="{{ asset('https://twitter.com/labeducativo?lang=es')}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="copyright"><p>Editorial Laboraorio Educativo | Todos los derechos Reservados<p></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</body>
+{% endblock %}
+{% block javascripts %}
+<script src="{{ asset('bundles/public/js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{ asset('bundles/public/styles/bootstrap4/popper.js')}}"></script>
+<script src="{{ asset('bundles/public/styles/bootstrap4/bootstrap.min.js')}}"></script>
+<script src="{{ asset('bundles/public/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+<script src="{{ asset('bundles/public/plugins/easing/easing.js')}}"></script>
+<script src="{{ asset('bundles/public/plugins/parallax-js-master/parallax.min.js')}}"></script>
+<script src="{{ asset('bundles/public/plugins/colorbox/jquery.colorbox-min.js')}}"></script>
+<script src="{{ asset('bundles/public/js/custom.js')}}"></script>
+<script src="{{ asset('https://maps.googleapis.com/maps/api/js?v=3.exp')}}"></script>
+<script>
+	function initialize() {
+	  var myLatlng = new google.maps.LatLng(10.491942021478748, -66.86825394630432); //coordenadas de ubicación
+	  var mapOptions = {
+	  zoom: 15, //zoom de tu mapa
+	  center: myLatlng, //centrar tu mapa
+	  scrollwheel: false, //si colocas true en vez de false el usuario podrá hacer scroll dentro del mapa
+	  draggable: true, //esta opción es la manito que aparece y es usado para desplazarse en el mapa
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	  };
+	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	  var contentString = '<img src="{{ asset('bundles/public/images/Editorial/Logotipos/ELE.png')}}" width="50px" style="display:block;margin:auto;"><p>Av. Ppal. de El Bosque - Edif. Pichincha, piso 6.  of. 63</p>';//imagen y dirección
+	  var infowindow = new google.maps.InfoWindow({content: contentString});
+	  var marker = new google.maps.Marker({
+	  position: myLatlng,
+	  animation:google.maps.Animation.DROP,
+	  icon: 'icono-mapa.png', //icono de mapa
+	  map: map
+	  });
+	  infowindow.open(map,marker);
+	  google.maps.event.addListener(marker, 'click', function() {
+	  infowindow.open(map,marker);
+	  });
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+{% endblock %}

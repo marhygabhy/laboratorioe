@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %} Editar Solicitud {% endblock %} 
+{% block body %}
+<h3 align="center"> Modificar Solicitud  </h3>
+<hr />
+    <div class="x_content">
+        <br />
+        {{ form_start(edit_form, { 'attr': {'id':'solicitud','class': 'form-horizontal form-label-left'} }) }} 
+        {{ form_errors(edit_form) }}
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente">{{ form_label(edit_form.cliente) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.cliente) }}                
+                {{form_widget(edit_form.cliente,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="libro">{{ form_label(edit_form.libro) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.libro) }}                
+                {{form_widget(edit_form.libro,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+    </div>
+<table>
+<tr>
+<th>             
+    <button type="submit" class="btn btn-success">Modificar</button>     
+    {{ form_end(edit_form) }}                  
+</th> 
+<th>
+    {{ form_start(delete_form) }}
+    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar </button>
+    {{ form_end(delete_form) }}
+</th> 
+<th>             
+    <a href="{{ path('solicitud_index') }}"><input type="button" class="btn btn-primary" value="Volver"></a>
+</th>   
+<tr> 
+</table> 
+{% endblock %}

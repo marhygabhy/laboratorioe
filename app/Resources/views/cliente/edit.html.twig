@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block title %} Editar Cliente {% endblock %} 
+{% block body %}
+<h3 align="center"> Modificar Clientes  </h3>
+<hr />
+    <div class="x_content">
+        <br />
+        {{ form_start(edit_form, { 'attr': {'id':'nombre','class': 'form-horizontal form-label-left'} }) }} 
+        {{ form_errors(edit_form) }}
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">{{ form_label(edit_form.nombre) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.nombre) }}                
+                {{form_widget(edit_form.nombre,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido">{{ form_label(edit_form.apellido) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.apellido) }}                
+                {{form_widget(edit_form.apellido,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo">{{ form_label(edit_form.correo) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.correo) }}                
+                {{form_widget(edit_form.correo,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="usuario">{{ form_label(edit_form.usuario) }}</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.usuario) }}                
+                {{form_widget(edit_form.usuario,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clave">{{ form_label(edit_form.clave) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.clave) }}                
+                {{form_widget(edit_form.clave,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>      
+
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pais">{{ form_label(edit_form.pais) }} <span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form_errors(edit_form.pais) }}                
+                {{form_widget(edit_form.pais,{ 'attr': {'class': 'form-control col-md-7 col-xs-12'} } ) }}                
+            </div>
+        </div>
+    </div>
+<table>
+<tr>
+<th>             
+    <button type="submit" class="btn btn-success">Modificar</button>     
+    {{ form_end(edit_form) }}                  
+</th> 
+<th>
+    {{ form_start(delete_form) }}
+    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar </button>
+    {{ form_end(delete_form) }}
+</th> 
+<th>             
+    <a href="{{ path('cliente_index') }}"><input type="button" class="btn btn-primary" value="Volver"></a>
+</th>   
+<tr> 
+</table>
+{% endblock %}
