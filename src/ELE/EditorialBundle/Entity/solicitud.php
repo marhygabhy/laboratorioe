@@ -1,6 +1,7 @@
 <?php
 
 namespace ELE\EditorialBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="solicitud")
  * @ORM\Entity(repositoryClass="ELE\EditorialBundle\Repository\solicitudRepository")
- * @ORM\Table(name="solicitud", indexes={@ORM\Index(name="fk_solicitud_cliente1_idx", columns={"cliente_id"}), @ORM\Index(name="fk_solicitud_libro1_idx", columns={"libro_id"})})
- */
+ */ 
 class solicitud
 {
     /**
@@ -23,24 +23,35 @@ class solicitud
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="cliente", inversedBy="solicitud")
-     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id", nullable=false)
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="libro", inversedBy="solicitud")
+     * @ORM\JoinTable(name="libro_solicitud",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="solicitud_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="libro_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $libro;
+
+    public function __construct() {
+        $this->libro = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+ 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cliente", type="string", length=255)
      */
     protected $cliente;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="libro", inversedBy="solicitud")
-     * @ORM\JoinColumn(name="libro_id", referencedColumnName="id", nullable=false)
-     */
-    protected $libro;
-
-    public function __construct()
-    {
-    }
 
     public function __sleep()
     {
-        return array('id', 'cliente_id', 'libro_id');
+        return array('id', 'cliente', 'libro_id');
     }
 
 
@@ -52,16 +63,16 @@ class solicitud
     public function getId()
     {
         return $this->id;
-    }
+    }    
 
     /**
      * Set cliente
      *
-     * @param \ELE\EditorialBundle\Entity\cliente $cliente
+     * @param string $cliente
      *
      * @return solicitud
      */
-    public function setCliente(\ELE\EditorialBundle\Entity\cliente $cliente)
+    public function setCliente($cliente)
     {
         $this->cliente = $cliente;
 
@@ -71,7 +82,7 @@ class solicitud
     /**
      * Get cliente
      *
-     * @return \ELE\EditorialBundle\Entity\cliente
+     * @return string
      */
     public function getCliente()
     {
@@ -79,23 +90,33 @@ class solicitud
     }
 
     /**
-     * Set libro
+     * Add libro
      *
      * @param \ELE\EditorialBundle\Entity\libro $libro
      *
      * @return solicitud
      */
-    public function setLibro(\ELE\EditorialBundle\Entity\libro $libro)
+    public function addLibro(\ELE\EditorialBundle\Entity\libro $libro)
     {
-        $this->libro = $libro;
+        $this->libro[] = $libro;
 
         return $this;
     }
 
     /**
+     * Remove libro
+     *
+     * @param \ELE\EditorialBundle\Entity\libro $libro
+     */
+    public function removeLibro(\ELE\EditorialBundle\Entity\libro $libro)
+    {
+        $this->libro->removeElement($libro);
+    }
+
+    /**
      * Get libro
      *
-     * @return \ELE\EditorialBundle\Entity\libro
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getLibro()
     {

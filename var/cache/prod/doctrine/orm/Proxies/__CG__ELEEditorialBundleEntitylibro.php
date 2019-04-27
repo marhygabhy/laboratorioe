@@ -58,16 +58,18 @@ class libro extends \ELE\EditorialBundle\Entity\libro implements \Doctrine\ORM\P
 
 
     /**
-     * 
+     * {@inheritDoc}
      * @return array
      */
     public function __sleep()
     {
+        $properties = array_merge(['__isInitialized__'], parent::__sleep());
+
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'id', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'codigo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'titulo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'subtitulo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'autor', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'pagina', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'coleccion', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'nColeccion', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'isbn', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'formato', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'descripcion'];
+            $properties = array_diff($properties, array_keys($this->__getLazyProperties()));
         }
 
-        return ['__isInitialized__', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'id', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'codigo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'titulo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'subtitulo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'autor', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'pagina', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'coleccion', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'nColeccion', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'isbn', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'formato', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\libro' . "\0" . 'descripcion'];
+        return $properties;
     }
 
     /**
@@ -301,50 +303,6 @@ class libro extends \ELE\EditorialBundle\Entity\libro implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      */
-    public function setColeccion($coleccion)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setColeccion', [$coleccion]);
-
-        return parent::setColeccion($coleccion);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getColeccion()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getColeccion', []);
-
-        return parent::getColeccion();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNColeccion($nColeccion)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNColeccion', [$nColeccion]);
-
-        return parent::setNColeccion($nColeccion);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNColeccion()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNColeccion', []);
-
-        return parent::getNColeccion();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setIsbn($isbn)
     {
 
@@ -406,6 +364,94 @@ class libro extends \ELE\EditorialBundle\Entity\libro implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescripcion', []);
 
         return parent::getDescripcion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRuta($ruta)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRuta', [$ruta]);
+
+        return parent::setRuta($ruta);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRuta()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRuta', []);
+
+        return parent::getRuta();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setColeccion(\ELE\EditorialBundle\Entity\coleccion $coleccion)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setColeccion', [$coleccion]);
+
+        return parent::setColeccion($coleccion);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getColeccion()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getColeccion', []);
+
+        return parent::getColeccion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setSolicitud(\ELE\EditorialBundle\Entity\solicitud $solicitud = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSolicitud', [$solicitud]);
+
+        return parent::setSolicitud($solicitud);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSolicitud()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSolicitud', []);
+
+        return parent::getSolicitud();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUser(\ELE\EditorialBundle\Entity\User $user)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
+
+        return parent::setUser($user);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUser()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
+
+        return parent::getUser();
     }
 
 }

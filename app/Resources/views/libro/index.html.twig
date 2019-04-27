@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %} Lista de Libros {% endblock %}
-{% block body %}
-<h3 align="center"> Lista de Libros  </h3>
+{% block title %}Libros {% endblock %}
+{% block body %} 
+{% for flashMessage in app.session.flashbag.get('mensaje') %}
+        <div class="alert alert-success" role="alert">
+            <div class="container"> {{ flashMessage }} </div>
+        </div>
+    {% endfor %}
+<h3 align="center"> Libros  </h3>
 <hr />
     {% for msg in app.session.flashBag.get('success') %}
         <div class="alert alert-success">
@@ -16,27 +21,27 @@
             {% endfor %}
         </div>
     {% endfor %}
-
+    Total registros: {{ pagination.getTotalItemCount }}
     <table id="datatable-fixed-header" class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Codigo</th>
-                <th>Titulo</th>
-                <th>Subtitulo</th>
-                <th>Autor</th>
-                <th>Pagina</th>
-                <th>Isbn</th>
-                <th>Formato</th>
-                <th>Descripción</th>
-                <th>Imagen</th>
-                <th>Coleccion</th>
-                <th>Categoria</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Id'|trans,'u.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Codigo'|trans,'u.codigo') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Titulo'|trans,'u.titulo') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Subtitulo'|trans,'u.subtitulo') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Autor'|trans,'u.autor') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Paginas'|trans,'u.pagina') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Isbn'|trans,'u.isbn') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Formato'|trans,'u.formato') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Descripción'|trans,'u.descripcion') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Imagen'|trans,'u.ruta') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Coleccion'|trans,'u.coleccion') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Categoria'|trans,'u.coleccion.categoria') }}</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-        {% for libro in libros %}
+        {% for libro in pagination %}
             <tr> 
                 <td><a href="{{ path('libro_show', { 'id': libro.id }) }}">{{ libro.id }}</a></td>
                 <td>{{ libro.codigo }}</td>
@@ -47,20 +52,20 @@
                 <td>{{ libro.isbn }}</td>
                 <td>{{ libro.formato }}</td>
                 <td>{{ libro.descripcion }}</td>
-                <td><a href="{{ asset('uploads/libros/' ~ libro.ruta) }}">Ver Libro</a></td>
+                <td><a href="{{ asset('uploads/libros' ~ libro.ruta) }}">Ver Libro</a></td>
                 <td>{{ libro.coleccion }}</td>
                 <td>{{ libro.coleccion.categoria }}</td>
                <td>
-                    <a href="{{ path('libro_show', { 'id': libro.id }) }}">
-                       <button type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver">  <i class="fa fa-eye"></i>  </button>
-                    </a>
-                    <a href="{{ path('libro_edit', { 'id': libro.id }) }}">
-                       <button type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar">  <i class="fa fa-pencil"></i>  </button>
-                    </a>
+                    <a href="{{ path('libro_show', { 'id': libro.id }) }}" class="btn btn-sm btn-info">Ver</a>
+                    <a href="{{ path('libro_edit', { 'id': libro.id }) }}" class="btn btn-sm btn-success">Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 <a href="{{ path('libro_new') }}"><input type="button" class="btn btn-primary" value="Crear Libro"></a>
+{# navegador de paginas#}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
 {% endblock %}

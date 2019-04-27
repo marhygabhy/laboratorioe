@@ -22,14 +22,21 @@ class libroController extends Controller
      * @Route("/", name="libro_index")
      * @Method("GET")
      */
-    public function indexAction()
-    {   
+    public function indexAction(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
 
-        $libros = $em->getRepository('EditorialBundle:libro')->findAll();
+        //$libros = $em->getRepository('EditorialBundle:libro')->findAll();
+        $dql = "SELECT u FROM EditorialBundle:libro u";
+        $libro = $em->createQuery($dql);
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $libro, $request->query->getInt('page', 1),
+            3
+        );
         return $this->render('libro/index.html.twig', array(
-            'libros' => $libros,
+            'pagination' => $pagination,
         ));
     }
 
@@ -46,25 +53,15 @@ class libroController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // La variable $file guardará el PDF subido
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $libro->getRuta();
-
-            // Generar un numbre único para el archivo antes de guardarlo
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-            // Mover el archivo al directorio donde se guardan los curriculums
-            $cvDir = $this->container->getparameter('kernel.root_dir').'/../web/uploads/libros/';
-            $file->move($cvDir, $fileName);
-
-            // Actualizar la propiedad curriculum para guardar el nombre de archivo PDF
-            // en lugar de sus contenidos
-            $libro->setRuta($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($libro);
             $em->flush();
 
-            return $this->redirectToRoute('libro_show', array('id' => $libro->getId()));
+            $this ->addFlash('mensaje', 'El libro ha sido creado');
+            return $this->redirectToRoute('libro_index');
+
+
+            //return $this->redirectToRoute('libro_show', array('id' => $libro->getId()));
         }
 
         return $this->render('libro/new.html.twig', array(
@@ -102,25 +99,14 @@ class libroController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            // La variable $file guardará el PDF subido
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $libro->getRuta();
-
-            // Generar un numbre único para el archivo antes de guardarlo
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-            // Mover el archivo al directorio donde se guardan los curriculums
-            $cvDir = $this->container->getparameter('kernel.root_dir').'/../web/uploads/libros/';
-            $file->move($cvDir, $fileName);
-
-            // Actualizar la propiedad curriculum para guardar el nombre de archivo PDF
-            // en lugar de sus contenidos
-            $libro->setRuta($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($libro);
             $em->flush();
 
-            return $this->redirectToRoute('libro_edit', array('id' => $libro->getId()));
+            $this ->addFlash('mensaje', 'El libro ha sido modificado');
+            return $this->redirectToRoute('libro_index');
+
+            //return $this->redirectToRoute('libro_edit', array('id' => $libro->getId()));
         }
 
         return $this->render('libro/edit.html.twig', array(
@@ -147,7 +133,10 @@ class libroController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('libro_index');
+        
+        $this ->addFlash('mensaje', 'El libro ha sido eliminado');
+            return $this->redirectToRoute('libro_index');
+        //return $this->redirectToRoute('libro_index');
     }
 
     /**

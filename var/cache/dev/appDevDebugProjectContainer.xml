@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">/var/www/html/laboratorio/app</parameter>
+    <parameter key="kernel.root_dir">/var/www/html/laboratorioe/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">/var/www/html/laboratorio/var/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/var/www/html/laboratorio/var/logs</parameter>
+    <parameter key="kernel.cache_dir">/var/www/html/laboratorioe/var/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/var/www/html/laboratorioe/var/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -17,6 +17,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="EditorialBundle">ELE\EditorialBundle\EditorialBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -25,10 +26,10 @@
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
-    <parameter key="database_port">5432</parameter>
-    <parameter key="database_name">editorial</parameter>
-    <parameter key="database_user">postgres</parameter>
-    <parameter key="database_password">ubv123$</parameter>
+    <parameter key="database_port">3306</parameter>
+    <parameter key="database_name">laboratorio</parameter>
+    <parameter key="database_user">maria</parameter>
+    <parameter key="database_password">1234</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -41,13 +42,13 @@
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">es</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">/var/www/html/laboratorio/app/../var/sessions/dev</parameter>
+    <parameter key="session.save_path">/var/www/html/laboratorioe/app/../var/sessions/dev</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
@@ -58,9 +59,10 @@
     </parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
     <parameter key="validator.translation_domain">validators</parameter>
+    <parameter key="translator.logging">true</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:/var/www/html/laboratorio/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/var/www/html/laboratorioe/var/cache/dev/profiler</parameter>
     <parameter key="router.options.generator_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\PhpGeneratorDumper</parameter>
@@ -72,12 +74,12 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/var/www/html/laboratorio/app/config/routing_dev.yml</parameter>
+    <parameter key="router.resource">/var/www/html/laboratorioe/app/config/routing_dev.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">/var/www/html/laboratorio/var/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">/var/www/html/laboratorioe/var/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="security.authentication.trust_resolver.anonymous_class">Symfony\Component\Security\Core\Authentication\Token\AnonymousToken</parameter>
     <parameter key="security.authentication.trust_resolver.rememberme_class">Symfony\Component\Security\Core\Authentication\Token\RememberMeToken</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection"/>
@@ -173,7 +175,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">/var/www/html/laboratorio/var/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">/var/www/html/laboratorioe/var/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -291,7 +293,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/var/www/html/laboratorio/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/var/www/html/laboratorioe/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -303,6 +305,12 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="knp_paginator.class">Knp\Component\Pager\Paginator</parameter>
+    <parameter key="knp_paginator.helper.processor.class">Knp\Bundle\PaginatorBundle\Helper\Processor</parameter>
+    <parameter key="knp_paginator.template.pagination">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -342,6 +350,10 @@
       <parameter key="data_collector.router" type="collection">
         <parameter>router</parameter>
         <parameter>@WebProfiler/Collector/router.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.translation" type="collection">
+        <parameter>translation</parameter>
+        <parameter>@WebProfiler/Collector/translation.html.twig</parameter>
       </parameter>
       <parameter key="data_collector.security" type="collection">
         <parameter>security</parameter>
@@ -387,7 +399,7 @@
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="request_stack"/>
-      <argument>en</argument>
+      <argument>es</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
     </service>
     <service id="translator_listener" class="Symfony\Component\HttpKernel\EventListener\TranslatorListener">
@@ -413,7 +425,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/var/www/html/laboratorio/app/Resources</argument>
+                <argument>/var/www/html/laboratorioe/app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -423,7 +435,7 @@
         <argument type="service">
           <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="translator"/>
+            <argument type="service" id="translator.default"/>
           </service>
         </argument>
         <argument type="service">
@@ -440,7 +452,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/var/www/html/laboratorio/app/Resources</argument>
+                <argument>/var/www/html/laboratorioe/app/Resources</argument>
               </service>
             </argument>
             <argument type="collection"/>
@@ -453,7 +465,7 @@
             <argument type="service">
               <service class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
                 <argument type="service" id="kernel"/>
-                <argument>/var/www/html/laboratorio/app</argument>
+                <argument>/var/www/html/laboratorioe/app</argument>
                 <argument type="collection"/>
               </service>
             </argument>
@@ -481,7 +493,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>/var/www/html/laboratorio/app/Resources</argument>
+      <argument>/var/www/html/laboratorioe/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>f2349df6392d68adcd1cc8aa50d24b5980b02130</argument>
@@ -558,7 +570,9 @@
     </service>
     <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator">
       <argument type="service" id="service_container"/>
-      <argument type="service" id="translator.selector"/>
+      <argument type="service">
+        <service class="Symfony\Component\Translation\MessageSelector" public="false"/>
+      </argument>
       <argument type="collection">
         <argument key="translation.loader.php" type="collection">
           <argument>php</argument>
@@ -596,19 +610,280 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/html/laboratorio/var/cache/dev/translations</argument>
+        <argument key="cache_dir">/var/www/html/laboratorioe/var/cache/dev/translations</argument>
         <argument key="debug">true</argument>
+        <argument key="resource_files" type="collection">
+          <argument key="cy" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
+          </argument>
+          <argument key="el" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf</argument>
+          </argument>
+          <argument key="fa" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.fa.xliff</argument>
+          </argument>
+          <argument key="id" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.id.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.id.xliff</argument>
+          </argument>
+          <argument key="sq" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
+          </argument>
+          <argument key="tr" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf</argument>
+          </argument>
+          <argument key="zh_CN" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.zh_CN.xlf</argument>
+          </argument>
+          <argument key="ro" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ro.xliff</argument>
+          </argument>
+          <argument key="he" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.he.xlf</argument>
+          </argument>
+          <argument key="de" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.de.xliff</argument>
+          </argument>
+          <argument key="sl" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sl.xlf</argument>
+          </argument>
+          <argument key="nn" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf</argument>
+          </argument>
+          <argument key="da" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.da.xliff</argument>
+          </argument>
+          <argument key="pt" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf</argument>
+          </argument>
+          <argument key="bg" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.bg.xlf</argument>
+          </argument>
+          <argument key="ru" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ru.xliff</argument>
+          </argument>
+          <argument key="ca" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf</argument>
+          </argument>
+          <argument key="pl" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.pl.xliff</argument>
+          </argument>
+          <argument key="lb" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf</argument>
+          </argument>
+          <argument key="ar" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ar.xliff</argument>
+          </argument>
+          <argument key="es" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf</argument>
+            <argument>/var/www/html/laboratorioe/src/ELE/EditorialBundle/Resources/translations/messages.es.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.es.xliff</argument>
+          </argument>
+          <argument key="en" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.en.xliff</argument>
+          </argument>
+          <argument key="pt_BR" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.pt_BR.xliff</argument>
+          </argument>
+          <argument key="th" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.th.xlf</argument>
+          </argument>
+          <argument key="fi" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
+          </argument>
+          <argument key="fr" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fr.xlf</argument>
+            <argument>/var/www/html/laboratorioe/src/ELE/EditorialBundle/Resources/translations/messages.fr.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.fr.xliff</argument>
+          </argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf</argument>
+          </argument>
+          <argument key="it" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.it.xliff</argument>
+          </argument>
+          <argument key="sk" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf</argument>
+          </argument>
+          <argument key="hy" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf</argument>
+          </argument>
+          <argument key="zh_TW" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf</argument>
+          </argument>
+          <argument key="hu" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hu.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.hu.xliff</argument>
+          </argument>
+          <argument key="eu" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
+          </argument>
+          <argument key="ja" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ja.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ja.xliff</argument>
+          </argument>
+          <argument key="uk" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.uk.xliff</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf</argument>
+          </argument>
+          <argument key="cs" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.cs.xliff</argument>
+          </argument>
+          <argument key="nl" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.nl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.nl.xliff</argument>
+          </argument>
+          <argument key="et" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf</argument>
+          </argument>
+          <argument key="sr_Cyrl" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf</argument>
+          </argument>
+          <argument key="hr" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hr.xlf</argument>
+          </argument>
+          <argument key="no" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.no.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.no.xliff</argument>
+          </argument>
+          <argument key="vi" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.vi.xlf</argument>
+          </argument>
+          <argument key="az" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.az.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.az.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.az.xlf</argument>
+          </argument>
+          <argument key="af" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf</argument>
+          </argument>
+          <argument key="lt" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lt.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.lt.xliff</argument>
+          </argument>
+          <argument key="sv" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.sv.xliff</argument>
+          </argument>
+          <argument key="mn" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf</argument>
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf</argument>
+          </argument>
+          <argument key="lv" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf</argument>
+          </argument>
+          <argument key="pt_PT" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_PT.xlf</argument>
+          </argument>
+          <argument key="ua" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ua.xlf</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
+          <argument key="ky" type="collection">
+            <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.ky.xliff</argument>
+          </argument>
+        </argument>
       </argument>
       <argument type="collection"/>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
+      <call method="setFallbackLocales">
+        <argument type="collection">
+          <argument>en</argument>
+        </argument>
+      </call>
       <autowiring-type>Symfony\Component\Translation\TranslatorInterface</autowiring-type>
     </service>
-    <service id="translator" class="Symfony\Component\Translation\IdentityTranslator">
-      <argument type="service" id="translator.selector"/>
-    </service>
-    <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false"/>
     <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader">
       <tag name="translation.loader" alias="php"/>
     </service>
@@ -1062,7 +1337,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>/var/www/html/laboratorio/var/cache/dev</argument>
+      <argument>/var/www/html/laboratorioe/var/cache/dev</argument>
     </service>
     <service id="validator" class="Symfony\Component\Validator\Validator\ValidatorInterface">
       <factory service="validator.builder" method="getValidator"/>
@@ -1092,7 +1367,7 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>/var/www/html/laboratorio/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+          <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1124,7 +1399,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:/var/www/html/laboratorio/var/cache/dev/profiler</argument>
+          <argument>file:/var/www/html/laboratorioe/var/cache/dev/profiler</argument>
         </service>
       </argument>
       <argument type="service" id="monolog.logger.profiler" on-invalid="null"/>
@@ -1183,6 +1458,9 @@
       </call>
       <call method="add">
         <argument type="service" id="data_collector.router"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.translation"/>
       </call>
       <call method="add">
         <argument type="service">
@@ -1260,6 +1538,10 @@
     <service id="data_collector.form" class="Symfony\Component\Form\Extension\DataCollector\FormDataCollector">
       <tag name="data_collector" template="@WebProfiler/Collector/form.html.twig" id="form" priority="310"/>
       <argument type="service" id="data_collector.form.extractor"/>
+    </service>
+    <service id="data_collector.translation" class="Symfony\Component\Translation\DataCollector\TranslationDataCollector">
+      <tag name="data_collector" template="@WebProfiler/Collector/translation.html.twig" id="translation" priority="275"/>
+      <argument type="service" id="translator"/>
     </service>
     <service id="routing.loader" class="Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader">
       <argument type="service" id="controller_name_converter"/>
@@ -1388,6 +1670,14 @@
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -1484,6 +1774,22 @@
         <argument>web_profiler.debug_toolbar</argument>
         <argument>Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</argument>
       </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.paginate</argument>
+        <argument>Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.sortable</argument>
+        <argument>Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.filtration</argument>
+        <argument>Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.sliding_pagination</argument>
+        <argument>Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber</argument>
+      </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
       <argument type="service">
@@ -1506,8 +1812,22 @@
     <service id="security.authentication.manager" class="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager" public="false">
       <argument type="collection">
         <argument type="service">
+          <service class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
+            <argument type="service" id="security.user.provider.concrete.our_db_provider"/>
+            <argument type="service" id="security.user_checker.main"/>
+            <argument>main</argument>
+            <argument type="service" id="security.encoder_factory"/>
+            <argument>true</argument>
+          </service>
+        </argument>
+        <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5caf783f6cc4d6.08473305</argument>
+            <argument>5cc428838b35d4.70946752</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
+            <argument>5cc428838b35d4.70946752</argument>
           </service>
         </argument>
       </argument>
@@ -1563,12 +1883,13 @@
         <service class="Symfony\Bundle\SecurityBundle\Security\FirewallMap" public="false">
           <argument type="service" id="service_container"/>
           <argument type="collection">
+            <argument key="security.firewall.map.context.main">null</argument>
             <argument key="security.firewall.map.context.dev" type="service">
               <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
                 <argument>^/(_(profiler|wdt)|css|images|js)/</argument>
               </service>
             </argument>
-            <argument key="security.firewall.map.context.main">null</argument>
+            <argument key="security.firewall.map.context.default">null</argument>
           </argument>
         </service>
       </argument>
@@ -1578,11 +1899,64 @@
       <argument type="service" id="request_stack" on-invalid="null"/>
       <argument type="service" id="router" on-invalid="null"/>
       <argument type="service" id="security.token_storage" on-invalid="null"/>
+      <call method="registerListener">
+        <argument>main</argument>
+        <argument>/logout</argument>
+        <argument>logout</argument>
+        <argument>_csrf_token</argument>
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="security.http_utils" class="Symfony\Component\Security\Http\HttpUtils" public="false">
+      <argument type="service" id="router" on-invalid="null"/>
+      <argument type="service" id="router" on-invalid="null"/>
     </service>
     <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">
       <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.encoder_factory"/>
+    </service>
+    <service id="security.channel_listener" class="Symfony\Component\Security\Http\Firewall\ChannelListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.access_map"/>
+      <argument type="service">
+        <service class="Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint" public="false">
+          <argument>80</argument>
+          <argument>443</argument>
+        </service>
+      </argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false">
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/login</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/user_new</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="security.access_listener" class="Symfony\Component\Security\Http\Firewall\AccessListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.access.decision_manager"/>
+      <argument type="service" id="security.access_map"/>
+      <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.rememberme.response_listener" class="Symfony\Component\Security\Http\RememberMe\ResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -1599,34 +1973,20 @@
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
     </service>
-    <service id="security.firewall.map.context.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
-      <argument type="collection"/>
+    <service id="security.user.provider.concrete.our_db_provider" class="Symfony\Bridge\Doctrine\Security\User\EntityUserProvider" public="false">
+      <argument type="service" id="doctrine"/>
+      <argument>EditorialBundle:User</argument>
+      <argument>username</argument>
       <argument>null</argument>
     </service>
     <service id="security.firewall.map.context.main" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
       <argument type="collection">
-        <argument type="service">
-          <service class="Symfony\Component\Security\Http\Firewall\ChannelListener" public="false">
-            <tag name="monolog.logger" channel="security"/>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\AccessMap" public="false"/>
-            </argument>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint" public="false">
-                <argument>80</argument>
-                <argument>443</argument>
-              </service>
-            </argument>
-            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
-          </service>
-        </argument>
+        <argument type="service" id="security.channel_listener"/>
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
             <argument type="service" id="security.token_storage"/>
             <argument type="collection">
-              <argument type="service">
-                <service class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false"/>
-              </argument>
+              <argument type="service" id="security.user.provider.concrete.our_db_provider"/>
             </argument>
             <argument>main</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -1634,36 +1994,169 @@
           </service>
         </argument>
         <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\LogoutListener" public="false">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="security.http_utils"/>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
+                <argument type="service" id="security.http_utils"/>
+                <argument>/</argument>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="csrf_token_id">logout</argument>
+              <argument key="logout_path">/logout</argument>
+            </argument>
+            <call method="addHandler">
+              <argument type="service">
+                <service class="Symfony\Component\Security\Http\Logout\SessionLogoutHandler" public="false"/>
+              </argument>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener" public="false">
+            <tag name="security.remember_me_aware" id="main" provider="security.user.provider.concrete.our_db_provider"/>
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="security.authentication.manager"/>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy" public="false">
+                <argument>migrate</argument>
+              </service>
+            </argument>
+            <argument type="service" id="security.http_utils"/>
+            <argument>main</argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false">
+                <argument type="service" id="security.http_utils"/>
+                <argument type="collection"/>
+                <call method="setOptions">
+                  <argument type="collection">
+                    <argument key="login_path">login</argument>
+                    <argument key="always_use_default_target_path">false</argument>
+                    <argument key="default_target_path">/</argument>
+                    <argument key="target_path_parameter">_target_path</argument>
+                    <argument key="use_referer">false</argument>
+                  </argument>
+                </call>
+                <call method="setProviderKey">
+                  <argument>main</argument>
+                </call>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler" public="false">
+                <argument type="service" id="http_kernel"/>
+                <argument type="service" id="security.http_utils"/>
+                <argument type="collection"/>
+                <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+                <call method="setOptions">
+                  <argument type="collection">
+                    <argument key="login_path">login</argument>
+                    <argument key="failure_path">null</argument>
+                    <argument key="failure_forward">false</argument>
+                    <argument key="failure_path_parameter">_failure_path</argument>
+                  </argument>
+                </call>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="check_path">login</argument>
+              <argument key="username_parameter">_username</argument>
+              <argument key="password_parameter">_password</argument>
+              <argument key="use_forward">false</argument>
+              <argument key="require_previous_session">true</argument>
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="csrf_token_id">authenticate</argument>
+              <argument key="post_only">true</argument>
+            </argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+            <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+            <argument>null</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\BasicAuthenticationListener" public="false">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="security.authentication.manager"/>
+            <argument>main</argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
+                <argument type="service" id="http_kernel"/>
+                <argument type="service" id="security.http_utils"/>
+                <argument>login</argument>
+                <argument>false</argument>
+              </service>
+            </argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+          </service>
+        </argument>
+        <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>5caf783f6cc4d6.08473305</argument>
+            <argument>5cc428838b35d4.70946752</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
         </argument>
-        <argument type="service">
-          <service class="Symfony\Component\Security\Http\Firewall\AccessListener" public="false">
-            <tag name="monolog.logger" channel="security"/>
-            <argument type="service" id="security.token_storage"/>
-            <argument type="service" id="security.access.decision_manager"/>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\AccessMap" public="false"/>
-            </argument>
-            <argument type="service" id="security.authentication.manager"/>
-          </service>
-        </argument>
+        <argument type="service" id="security.access_listener"/>
       </argument>
       <argument type="service">
         <service class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
           <argument type="service" id="security.token_storage"/>
           <argument type="service" id="security.authentication.trust_resolver"/>
+          <argument type="service" id="security.http_utils"/>
+          <argument>main</argument>
           <argument type="service">
-            <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-              <argument type="service" id="router" on-invalid="null"/>
-              <argument type="service" id="router" on-invalid="null"/>
+            <service class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
+              <argument type="service" id="http_kernel"/>
+              <argument type="service" id="security.http_utils"/>
+              <argument>login</argument>
+              <argument>false</argument>
             </service>
           </argument>
-          <argument>main</argument>
+          <argument>null</argument>
+          <argument>null</argument>
+          <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+          <argument>false</argument>
+        </service>
+      </argument>
+    </service>
+    <service id="security.firewall.map.context.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection"/>
+      <argument>null</argument>
+    </service>
+    <service id="security.firewall.map.context.default" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection">
+        <argument type="service" id="security.channel_listener"/>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="collection">
+              <argument type="service" id="security.user.provider.concrete.our_db_provider"/>
+            </argument>
+            <argument>default</argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+            <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
+            <argument type="service" id="security.token_storage"/>
+            <argument>5cc428838b35d4.70946752</argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+            <argument type="service" id="security.authentication.manager"/>
+          </service>
+        </argument>
+        <argument type="service" id="security.access_listener"/>
+      </argument>
+      <argument type="service">
+        <service class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
+          <argument type="service" id="security.token_storage"/>
+          <argument type="service" id="security.authentication.trust_resolver"/>
+          <argument type="service" id="security.http_utils"/>
+          <argument>default</argument>
           <argument>null</argument>
           <argument>null</argument>
           <argument>null</argument>
@@ -1682,7 +2175,7 @@
           <argument>form_div_layout.html.twig</argument>
         </argument>
         <argument key="autoescape">filename</argument>
-        <argument key="cache">/var/www/html/laboratorio/var/cache/dev/twig</argument>
+        <argument key="cache">/var/www/html/laboratorioe/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
         <argument key="date" type="collection">
@@ -1742,7 +2235,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>/var/www/html/laboratorio/app</argument>
+            <argument>/var/www/html/laboratorioe/app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -1829,6 +2322,9 @@
         </argument>
       </call>
       <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
+      <call method="addExtension">
         <argument type="service">
           <service class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
             <tag name="twig.extension"/>
@@ -1893,7 +2389,7 @@
       <argument>twig.controller.exception:showAction</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>/var/www/html/laboratorio/var/logs/dev.log</argument>
+      <argument>/var/www/html/laboratorioe/var/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -1933,12 +2429,12 @@
     <service id="doctrine.dbal.logger.profiling.default" class="Doctrine\DBAL\Logging\DebugStack" public="false"/>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection">
       <argument type="collection">
-        <argument key="driver">pdo_pgsql</argument>
+        <argument key="driver">pdo_mysql</argument>
         <argument key="host">127.0.0.1</argument>
-        <argument key="port">5432</argument>
-        <argument key="dbname">editorial</argument>
-        <argument key="user">postgres</argument>
-        <argument key="password">ubv123$</argument>
+        <argument key="port">3306</argument>
+        <argument key="dbname">laboratorio</argument>
+        <argument key="user">maria</argument>
+        <argument key="password">1234</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
@@ -1976,7 +2472,12 @@
           </call>
         </service>
       </argument>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="enum">string</argument>
+        <argument key="set">string</argument>
+        <argument key="varbinary">string</argument>
+        <argument key="tinyblob">text</argument>
+      </argument>
       <factory service="doctrine.dbal.connection_factory" method="createConnection"/>
     </service>
     <service id="form.type_guesser.doctrine" class="Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser">
@@ -1997,17 +2498,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_4f2b2eeaf05643b99c7b0557af17c99898ae8d256d58d92f190ec02c0e0146f1</argument>
+        <argument>sf2orm_default_e377daa8108f05a1d1b1b95e75f39daee139f535e12d21b50b343f9876372b5f</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_4f2b2eeaf05643b99c7b0557af17c99898ae8d256d58d92f190ec02c0e0146f1</argument>
+        <argument>sf2orm_default_e377daa8108f05a1d1b1b95e75f39daee139f535e12d21b50b343f9876372b5f</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_4f2b2eeaf05643b99c7b0557af17c99898ae8d256d58d92f190ec02c0e0146f1</argument>
+        <argument>sf2orm_default_e377daa8108f05a1d1b1b95e75f39daee139f535e12d21b50b343f9876372b5f</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\ORM\Mapping\DefaultEntityListenerResolver"/>
@@ -2044,7 +2545,7 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>/var/www/html/laboratorio/src/ELE/EditorialBundle/Entity</argument>
+                        <argument>/var/www/html/laboratorioe/src/ELE/EditorialBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2054,7 +2555,7 @@
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>/var/www/html/laboratorio/var/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>/var/www/html/laboratorioe/var/cache/dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2144,6 +2645,46 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" lazy="true">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig</argument>
+        <argument key="defaultSortableTemplate">KnpPaginatorBundle:Pagination:sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -2209,6 +2750,10 @@
         <argument key="data_collector.router" type="collection">
           <argument>router</argument>
           <argument>@WebProfiler/Collector/router.html.twig</argument>
+        </argument>
+        <argument key="data_collector.translation" type="collection">
+          <argument>translation</argument>
+          <argument>@WebProfiler/Collector/translation.html.twig</argument>
         </argument>
         <argument key="data_collector.security" type="collection">
           <argument>security</argument>
@@ -2365,12 +2910,12 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>/var/www/html/laboratorio/var/cache/dev/sessions</argument>
+      <argument>/var/www/html/laboratorioe/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-      <argument>/var/www/html/laboratorio/app/../var/sessions/dev</argument>
+      <argument>/var/www/html/laboratorioe/app/../var/sessions/dev</argument>
     </service>
     <service id="templating.loader" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader">
       <argument type="service" id="templating.locator"/>
@@ -2380,12 +2925,21 @@
       <argument type="service" id="templating.name_parser"/>
       <argument type="service" id="templating.locator"/>
     </service>
+    <service id="translator" class="Symfony\Component\Translation\DataCollectorTranslator">
+      <argument type="service">
+        <service class="Symfony\Component\Translation\LoggingTranslator" public="false">
+          <tag name="monolog.logger" channel="translation"/>
+          <argument type="service" id="translator.default"/>
+          <argument type="service" id="monolog.logger.translation"/>
+        </service>
+      </argument>
+    </service>
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>/var/www/html/laboratorio/app/config/routing_dev.yml</argument>
+      <argument>/var/www/html/laboratorioe/app/config/routing_dev.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/html/laboratorio/var/cache/dev</argument>
+        <argument key="cache_dir">/var/www/html/laboratorioe/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -2409,13 +2963,20 @@
       </argument>
       <argument type="service">
         <service class="Doctrine\Common\Cache\FilesystemCache" public="false">
-          <argument>/var/www/html/laboratorio/var/cache/dev/annotations</argument>
+          <argument>/var/www/html/laboratorioe/var/cache/dev/annotations</argument>
         </service>
       </argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="ELE\EditorialBundle\Entity\User" type="collection">
+          <argument key="class">Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder</argument>
+          <argument key="arguments" type="collection">
+            <argument>12</argument>
+          </argument>
+        </argument>
+      </argument>
     </service>
     <service id="security.password_encoder" class="Symfony\Component\Security\Core\Encoder\UserPasswordEncoder">
       <argument type="service" id="security.encoder_factory"/>
@@ -2426,42 +2987,46 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/src/ELE/EditorialBundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/src/ELE/EditorialBundle/Resources/views</argument>
         <argument>Editorial</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/vendor/knplabs/knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/app/Resources/views</argument>
+        <argument>/var/www/html/laboratorioe/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/laboratorio/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>/var/www/html/laboratorioe/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
@@ -2541,6 +3106,7 @@
     </service>
     <service id="session.storage" alias="session.storage.native"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
+    <service id="security.user_checker.default" alias="security.user_checker.main"/>
     <service id="swiftmailer.spool" alias="swiftmailer.mailer.default.spool"/>
     <service id="swiftmailer.transport.real" alias="swiftmailer.mailer.default.transport.real"/>
     <service id="swiftmailer.plugin.messagelogger" alias="swiftmailer.mailer.default.plugin.messagelogger"/>
@@ -2552,6 +3118,7 @@
     <service id="doctrine.orm.default_metadata_cache" alias="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
     <service id="doctrine.orm.default_result_cache" alias="doctrine_cache.providers.doctrine.orm.default_result_cache"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
+    <service id="knp\component\pager\paginatorinterface" alias="knp_paginator"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
   </services>
 </container>

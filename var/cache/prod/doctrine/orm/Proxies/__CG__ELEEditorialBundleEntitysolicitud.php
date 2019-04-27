@@ -58,16 +58,18 @@ class solicitud extends \ELE\EditorialBundle\Entity\solicitud implements \Doctri
 
 
     /**
-     * 
+     * {@inheritDoc}
      * @return array
      */
     public function __sleep()
     {
+        $properties = array_merge(['__isInitialized__'], parent::__sleep());
+
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'id', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'codigoLibro', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'codigoCliente', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'nombreCliente', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'apellidoCliente', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'correoCliente'];
+            $properties = array_diff($properties, array_keys($this->__getLazyProperties()));
         }
 
-        return ['__isInitialized__', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'id', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'codigoLibro', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'codigoCliente', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'nombreCliente', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'apellidoCliente', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\solicitud' . "\0" . 'correoCliente'];
+        return $properties;
     }
 
     /**
@@ -191,111 +193,89 @@ class solicitud extends \ELE\EditorialBundle\Entity\solicitud implements \Doctri
     /**
      * {@inheritDoc}
      */
-    public function setCodigoLibro($codigoLibro)
+    public function setLibro(\ELE\EditorialBundle\Entity\libro $libro)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCodigoLibro', [$codigoLibro]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLibro', [$libro]);
 
-        return parent::setCodigoLibro($codigoLibro);
+        return parent::setLibro($libro);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getCodigoLibro()
+    public function getLibro()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCodigoLibro', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLibro', []);
 
-        return parent::getCodigoLibro();
+        return parent::getLibro();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setCodigoCliente($codigoCliente)
+    public function setCliente(\ELE\EditorialBundle\Entity\cliente $cliente)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCodigoCliente', [$codigoCliente]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCliente', [$cliente]);
 
-        return parent::setCodigoCliente($codigoCliente);
+        return parent::setCliente($cliente);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getCodigoCliente()
+    public function getCliente()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCodigoCliente', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCliente', []);
 
-        return parent::getCodigoCliente();
+        return parent::getCliente();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setNombreCliente($nombreCliente)
+    public function addLibro(\ELE\EditorialBundle\Entity\libro $libro)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNombreCliente', [$nombreCliente]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLibro', [$libro]);
 
-        return parent::setNombreCliente($nombreCliente);
+        return parent::addLibro($libro);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getNombreCliente()
+    public function removeLibro(\ELE\EditorialBundle\Entity\libro $libro)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNombreCliente', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLibro', [$libro]);
 
-        return parent::getNombreCliente();
+        return parent::removeLibro($libro);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setApellidoCliente($apellidoCliente)
+    public function setUser(\ELE\EditorialBundle\Entity\User $user)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApellidoCliente', [$apellidoCliente]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
-        return parent::setApellidoCliente($apellidoCliente);
+        return parent::setUser($user);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getApellidoCliente()
+    public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApellidoCliente', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
-        return parent::getApellidoCliente();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCorreoCliente($correoCliente)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCorreoCliente', [$correoCliente]);
-
-        return parent::setCorreoCliente($correoCliente);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCorreoCliente()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCorreoCliente', []);
-
-        return parent::getCorreoCliente();
+        return parent::getUser();
     }
 
 }

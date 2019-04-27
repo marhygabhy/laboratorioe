@@ -22,14 +22,21 @@ class categoriaController extends Controller
      * @Route("/", name="categoria_index")
      * @Method("GET")
      */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
+    public function indexAction(Request $request)
+    { 
+        $em = $this->getDoctrine()->getManager(); 
 
-        $categorias = $em->getRepository('EditorialBundle:categoria')->findAll();
+        //$categorias = $em->getRepository('EditorialBundle:categoria')->findAll();
+        $dql = "SELECT u FROM EditorialBundle:categoria u";
+        $categoria = $em->createQuery($dql);
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $categoria, $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('categoria/index.html.twig', array(
-            'categorias' => $categorias,
+            'pagination' => $pagination,
         ));
     }
 
@@ -50,7 +57,9 @@ class categoriaController extends Controller
             $em->persist($categoria);
             $em->flush();
 
-            return $this->redirectToRoute('categoria_show', array('id' => $categoria->getId()));
+            $this ->addFlash('mensaje', 'La categoria ha sido creada');
+            return $this->redirectToRoute('categoria_index');
+            //return $this->redirectToRoute('categoria_show', array('id' => $categoria->getId()));
         }
 
         return $this->render('categoria/new.html.twig', array(
@@ -91,8 +100,9 @@ class categoriaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($categoria);
             $em->flush();
-
-            return $this->redirectToRoute('categoria_edit', array('id' => $categoria->getId()));
+            $this ->addFlash('mensaje', 'La categoria ha sido modificada');
+            return $this->redirectToRoute('categoria_index');
+            //return $this->redirectToRoute('categoria_edit', array('id' => $categoria->getId()));
         }
 
         return $this->render('categoria/edit.html.twig', array(
@@ -119,7 +129,8 @@ class categoriaController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('categoria_index');
+        $this ->addFlash('mensaje', 'La categoria ha sido eliminada');
+            return $this->redirectToRoute('user_index');
     }
 
     /**

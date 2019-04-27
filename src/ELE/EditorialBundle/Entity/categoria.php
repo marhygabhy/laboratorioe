@@ -35,6 +35,7 @@ class categoria
      */
     protected $coleccion;
 
+
     public function __construct()
     {
         $this->libro = new ArrayCollection();

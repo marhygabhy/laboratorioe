@@ -42,9 +42,10 @@ class coleccion
      */
     protected $categoria;
 
+
     public function __construct()
     {
-        $this->libros = new ArrayCollection();
+        $this->libro = new ArrayCollection();
     }
 
     public function __sleep()
@@ -149,4 +150,5 @@ class coleccion
     {
         return $this->getDescripcion();
     }
+
 }

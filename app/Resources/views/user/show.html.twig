@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    {% for flashMessage in app.session.flashbag.get('mensaje') %}
+        <div class="alert alert-success" role="alert">
+            <div class="container"> {{ flashMessage }} </div>
+        </div>
+    {% endfor %}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="page-header margin-none">
+                <h2 class="padding-none">{{ user.firstName }} {{ user.lastName }} </h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>{{ user.username }}</th>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>{{ user.firstName }}</th>
+                        </tr>
+                        <tr>
+                            <th>Apellido</th>
+                            <th>{{ user.lastName }}</th>
+                        </tr>
+                        <tr>
+                            <th>Correo</th>
+                            <th>{{ user.email }}</th>
+                        </tr>
+                        <tr>
+                            <th>Pais</th>
+                            <td>{{ user.pais.descripcion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Rol</th>
+                            <th>
+                                {% if user.role == 'ROLE_ADMIN' %}
+                                <strong>Administrador</strong>
+                                {% elseif user.role == 'ROLE_USER' %}
+                                <strong>Usuario</strong>
+                                {% endif %}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Activo</th>
+                            <th>{% if user.isActive %}Si{% else %}No{% endif %}</th>
+                        </tr>
+                        <tr>
+                            <th>Fecha de Creado</th>
+                            <th>{% if user.createdAt %}{{ user.createdAt|date('Y-m-d H:i:s') }}{% endif %}</th>
+                        </tr>
+                        <tr>
+                            <th>Fecha de Modificado</th>
+                            <th>{% if user.updatedAt %}{{ user.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <table>
+                            <tr>
+                                <th>             
+                                    <a href="{{ path('user_index') }}" class="btn btn-sm btn-info">Volver</a>                       
+                                </th> 
+                                <th>
+                                    <a href="{{ path('user_edit', { 'id': user.id }) }}" class="btn btn-sm btn-primary">Editar</a>
+                                </th> 
+                                <th>             
+                                    {{ form_start(delete_form) }}
+                                    <input type="submit" value="Eliminar" class="btn btn-sm btn-danger btn-delete">
+                                    {{ form_end(delete_form) }}
+                                </th>   
+                            <tr> 
+                        </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

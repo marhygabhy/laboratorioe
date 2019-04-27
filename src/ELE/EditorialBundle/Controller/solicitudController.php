@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ELE\EditorialBundle\Entity\solicitud;
+use ELE\EditorialBundle\Entity\libro;
 use ELE\EditorialBundle\Form\solicitudType;
 
 /**
@@ -22,14 +23,21 @@ class solicitudController extends Controller
      * @Route("/", name="solicitud_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $solicitudes = $em->getRepository('EditorialBundle:solicitud')->findAll();
+        //$solicitudes = $em->getRepository('EditorialBundle:solicitud')->findAll();
+        $dql = "SELECT u FROM EditorialBundle:solicitud u";
+        $solicitud = $em->createQuery($dql);
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $solicitud, $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('solicitud/index.html.twig', array(
-            'solicitudes' => $solicitudes,
+            'pagination' => $pagination,
         ));
     }
 
@@ -47,10 +55,15 @@ class solicitudController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $session = $request->getSession($username);
+            var_dump($session);
             $em->persist($solicitud);
             $em->flush();
 
-            return $this->redirectToRoute('solicitud_show', array('id' => $solicitud->getId()));
+            $this ->addFlash('mensaje', 'La solicitud ha sido enviada la editorial le enviará un correo electrónico para confirmar su pedido');
+            return $this->redirectToRoute('solicitud_index');
+
+            //return $this->redirectToRoute('solicitud_index', array('id' => $solicitud->getId()));
         }
 
         return $this->render('solicitud/new.html.twig', array(
@@ -68,7 +81,6 @@ class solicitudController extends Controller
     public function showAction(solicitud $solicitud)
     {
         $deleteForm = $this->createDeleteForm($solicitud);
-
         return $this->render('solicitud/show.html.twig', array(
             'solicitud' => $solicitud,
             'delete_form' => $deleteForm->createView(),
@@ -80,6 +92,7 @@ class solicitudController extends Controller
      *
      * @Route("/{id}/edit", name="solicitud_edit")
      * @Method({"GET", "POST"})
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, solicitud $solicitud)
     {
@@ -92,7 +105,9 @@ class solicitudController extends Controller
             $em->persist($solicitud);
             $em->flush();
 
-            return $this->redirectToRoute('solicitud_edit', array('id' => $solicitud->getId()));
+            $this ->addFlash('mensaje', 'La solicitud ha sido modificada');
+            return $this->redirectToRoute('solicitud_index');
+            //return $this->redirectToRoute('solicitud_index', array('id' => $solicitud->getId()));
         }
 
         return $this->render('solicitud/edit.html.twig', array(
@@ -119,7 +134,9 @@ class solicitudController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('solicitud_index');
+        $this ->addFlash('mensaje', 'La solicitud ha sido eliminada');
+            return $this->redirectToRoute('solicitud_index');
+        //return $this->redirectToRoute('solicitud_index');
     }
 
     /**

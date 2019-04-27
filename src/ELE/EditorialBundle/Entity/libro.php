@@ -3,8 +3,8 @@
 namespace ELE\EditorialBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * libro
@@ -89,25 +89,25 @@ class libro
     protected $ruta;
 
     /**
-     * @ORM\OneToMany(targetEntity="solicitud", mappedBy="libro")
-     * @ORM\JoinColumn(name="id", referencedColumnName="libro_id", nullable=false)
-     */
-    protected $solicitud;
-
-    /**
      * @ORM\ManyToOne(targetEntity="coleccion", inversedBy="libro")
      * @ORM\JoinColumn(name="coleccion_id", referencedColumnName="id", nullable=false)
      */
     protected $coleccion;
 
-    public function __construct()
-    {
-        $this->solicitud = new ArrayCollection();
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="solicitud", mappedBy="libro")
+     */
+    private $solicitud;
+
+    public function __construct() {
+        $this->solicitud = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function __sleep()
     {
-        return array('id', 'codigo', 'titulo', 'subtitulo', 'autor', 'pagina', 'isbn', 'formato', 'descripcion', 'coleccion_id');
+        return array('id', 'codigo', 'titulo', 'subtitulo', 'autor', 'pagina', 'isbn', 'formato', 'descripcion', 'coleccion_id', 'solicitud_id');
     }
 
     /**
@@ -316,7 +316,7 @@ class libro
     {
         return $this->descripcion;
     }
-    
+
     /**
      * Set ruta
      *
@@ -340,6 +340,31 @@ class libro
     {
         return $this->ruta;
     }
+
+    /**
+     * Set coleccion
+     *
+     * @param \ELE\EditorialBundle\Entity\coleccion $coleccion
+     *
+     * @return libro
+     */
+    public function setColeccion(\ELE\EditorialBundle\Entity\coleccion $coleccion)
+    {
+        $this->coleccion = $coleccion;
+
+        return $this;
+    }
+
+    /**
+     * Get coleccion
+     *
+     * @return \ELE\EditorialBundle\Entity\coleccion
+     */
+    public function getColeccion()
+    {
+        return $this->coleccion;
+    }
+
 
     /**
      * Add solicitud
@@ -376,27 +401,16 @@ class libro
     }
 
     /**
-     * Set coleccion
+     * Set solicitud
      *
-     * @param \ELE\EditorialBundle\Entity\coleccion $coleccion
+     * @param \ELE\EditorialBundle\Entity\solicitud $solicitud
      *
      * @return libro
      */
-    public function setColeccion(\ELE\EditorialBundle\Entity\coleccion $coleccion)
+    public function setSolicitud(\ELE\EditorialBundle\Entity\solicitud $solicitud)
     {
-        $this->coleccion = $coleccion;
+        $this->solicitud = $solicitud;
 
         return $this;
     }
-
-    /**
-     * Get coleccion
-     *
-     * @return \ELE\EditorialBundle\Entity\coleccion
-     */
-    public function getColeccion()
-    {
-        return $this->coleccion;
-    }
-
 }

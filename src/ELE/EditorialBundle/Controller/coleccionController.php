@@ -22,14 +22,21 @@ class coleccionController extends Controller
      * @Route("/", name="coleccion_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $colecciones = $em->getRepository('EditorialBundle:coleccion')->findAll();
+        //$colecciones = $em->getRepository('EditorialBundle:coleccion')->findAll();
+        $dql = "SELECT u FROM EditorialBundle:coleccion u";
+        $coleccion = $em->createQuery($dql);
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $coleccion, $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('coleccion/index.html.twig', array(
-            'colecciones' => $colecciones,
+            'pagination' => $pagination,
         ));
     }
 
@@ -48,9 +55,12 @@ class coleccionController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($coleccion);
-            $em->flush();
+            $em->flush(); 
 
-            return $this->redirectToRoute('coleccion_show', array('id' => $coleccion->getId()));
+            $this ->addFlash('mensaje', 'La colección ha sido creada');
+            return $this->redirectToRoute('coleccion_index');
+
+            //return $this->redirectToRoute('coleccion_show', array('id' => $coleccion->getId()));
         }
 
         return $this->render('coleccion/new.html.twig', array(
@@ -92,7 +102,11 @@ class coleccionController extends Controller
             $em->persist($coleccion);
             $em->flush();
 
-            return $this->redirectToRoute('coleccion_edit', array('id' => $coleccion->getId()));
+            $this ->addFlash('mensaje', 'La colección ha sido modificada');
+            return $this->redirectToRoute('coleccion_index');
+
+
+            //return $this->redirectToRoute('coleccion_edit', array('id' => $coleccion->getId()));
         }
 
         return $this->render('coleccion/edit.html.twig', array(
@@ -119,7 +133,11 @@ class coleccionController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('coleccion_index');
+        $this ->addFlash('mensaje', 'La colección ha sido eliminada');
+            return $this->redirectToRoute('coleccion_index');
+
+
+        //return $this->redirectToRoute('coleccion_index');
     }
 
     /**

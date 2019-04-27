@@ -36,65 +36,254 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ele_editorial_default_index',);
         }
 
-        if (0 === strpos($pathinfo, '/cliente')) {
-            // cliente_index
-            if (rtrim($pathinfo, '/') === '/cliente') {
+        if (0 === strpos($pathinfo, '/user')) {
+            // user_index
+            if (rtrim($pathinfo, '/') === '/user') {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_cliente_index;
+                    goto not_user_index;
                 }
 
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'cliente_index');
+                    return $this->redirect($pathinfo.'/', 'user_index');
                 }
 
-                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::indexAction',  '_route' => 'cliente_index',);
+                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\UserController::indexAction',  '_route' => 'user_index',);
             }
-            not_cliente_index:
+            not_user_index:
 
-            // cliente_new
-            if ($pathinfo === '/cliente/new') {
+            // user_new
+            if ($pathinfo === '/user/new') {
                 if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_cliente_new;
+                    goto not_user_new;
                 }
 
-                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::newAction',  '_route' => 'cliente_new',);
+                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\UserController::newAction',  '_route' => 'user_new',);
             }
-            not_cliente_new:
+            not_user_new:
 
-            // cliente_show
-            if (preg_match('#^/cliente/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            // user_show
+            if (preg_match('#^/user/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_cliente_show;
+                    goto not_user_show;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cliente_show')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::showAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_show')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\UserController::showAction',));
             }
-            not_cliente_show:
+            not_user_show:
 
-            // cliente_edit
-            if (preg_match('#^/cliente/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+            // user_edit
+            if (preg_match('#^/user/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
                 if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_cliente_edit;
+                    goto not_user_edit;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cliente_edit')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::editAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_edit')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\UserController::editAction',));
             }
-            not_cliente_edit:
+            not_user_edit:
 
-            // cliente_delete
-            if (preg_match('#^/cliente/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            // user_delete
+            if (preg_match('#^/user/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 if ($this->context->getMethod() != 'DELETE') {
                     $allow[] = 'DELETE';
-                    goto not_cliente_delete;
+                    goto not_user_delete;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cliente_delete')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::deleteAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_delete')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\UserController::deleteAction',));
             }
-            not_cliente_delete:
+            not_user_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/c')) {
+            if (0 === strpos($pathinfo, '/categoria')) {
+                // categoria_index
+                if (rtrim($pathinfo, '/') === '/categoria') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_categoria_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'categoria_index');
+                    }
+
+                    return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\categoriaController::indexAction',  '_route' => 'categoria_index',);
+                }
+                not_categoria_index:
+
+                // categoria_new
+                if ($pathinfo === '/categoria/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_categoria_new;
+                    }
+
+                    return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\categoriaController::newAction',  '_route' => 'categoria_new',);
+                }
+                not_categoria_new:
+
+                // categoria_show
+                if (preg_match('#^/categoria/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_categoria_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'categoria_show')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\categoriaController::showAction',));
+                }
+                not_categoria_show:
+
+                // categoria_edit
+                if (preg_match('#^/categoria/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_categoria_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'categoria_edit')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\categoriaController::editAction',));
+                }
+                not_categoria_edit:
+
+                // categoria_delete
+                if (preg_match('#^/categoria/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_categoria_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'categoria_delete')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\categoriaController::deleteAction',));
+                }
+                not_categoria_delete:
+
+            }
+
+            if (0 === strpos($pathinfo, '/cliente')) {
+                // cliente_index
+                if (rtrim($pathinfo, '/') === '/cliente') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_cliente_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'cliente_index');
+                    }
+
+                    return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::indexAction',  '_route' => 'cliente_index',);
+                }
+                not_cliente_index:
+
+                // cliente_new
+                if ($pathinfo === '/cliente/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_cliente_new;
+                    }
+
+                    return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::newAction',  '_route' => 'cliente_new',);
+                }
+                not_cliente_new:
+
+                // cliente_show
+                if (preg_match('#^/cliente/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_cliente_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'cliente_show')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::showAction',));
+                }
+                not_cliente_show:
+
+                // cliente_edit
+                if (preg_match('#^/cliente/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_cliente_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'cliente_edit')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::editAction',));
+                }
+                not_cliente_edit:
+
+                // cliente_delete
+                if (preg_match('#^/cliente/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_cliente_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'cliente_delete')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\clienteController::deleteAction',));
+                }
+                not_cliente_delete:
+
+            }
+
+            if (0 === strpos($pathinfo, '/coleccion')) {
+                // coleccion_index
+                if (rtrim($pathinfo, '/') === '/coleccion') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_coleccion_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'coleccion_index');
+                    }
+
+                    return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\coleccionController::indexAction',  '_route' => 'coleccion_index',);
+                }
+                not_coleccion_index:
+
+                // coleccion_new
+                if ($pathinfo === '/coleccion/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_coleccion_new;
+                    }
+
+                    return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\coleccionController::newAction',  '_route' => 'coleccion_new',);
+                }
+                not_coleccion_new:
+
+                // coleccion_show
+                if (preg_match('#^/coleccion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_coleccion_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'coleccion_show')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\coleccionController::showAction',));
+                }
+                not_coleccion_show:
+
+                // coleccion_edit
+                if (preg_match('#^/coleccion/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_coleccion_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'coleccion_edit')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\coleccionController::editAction',));
+                }
+                not_coleccion_edit:
+
+                // coleccion_delete
+                if (preg_match('#^/coleccion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_coleccion_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'coleccion_delete')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\coleccionController::deleteAction',));
+                }
+                not_coleccion_delete:
+
+            }
 
         }
 
@@ -160,6 +349,68 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         }
 
+        if (0 === strpos($pathinfo, '/pais')) {
+            // pais_index
+            if (rtrim($pathinfo, '/') === '/pais') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_pais_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'pais_index');
+                }
+
+                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\paisController::indexAction',  '_route' => 'pais_index',);
+            }
+            not_pais_index:
+
+            // pais_new
+            if ($pathinfo === '/pais/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_pais_new;
+                }
+
+                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\paisController::newAction',  '_route' => 'pais_new',);
+            }
+            not_pais_new:
+
+            // pais_show
+            if (preg_match('#^/pais/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_pais_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pais_show')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\paisController::showAction',));
+            }
+            not_pais_show:
+
+            // pais_edit
+            if (preg_match('#^/pais/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_pais_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pais_edit')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\paisController::editAction',));
+            }
+            not_pais_edit:
+
+            // pais_delete
+            if (preg_match('#^/pais/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_pais_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pais_delete')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\paisController::deleteAction',));
+            }
+            not_pais_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/solicitud')) {
             // solicitud_index
             if (rtrim($pathinfo, '/') === '/solicitud') {
@@ -222,68 +473,6 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         }
 
-        if (0 === strpos($pathinfo, '/usuario')) {
-            // usuario_index
-            if (rtrim($pathinfo, '/') === '/usuario') {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_usuario_index;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'usuario_index');
-                }
-
-                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\usuarioController::indexAction',  '_route' => 'usuario_index',);
-            }
-            not_usuario_index:
-
-            // usuario_new
-            if ($pathinfo === '/usuario/new') {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_usuario_new;
-                }
-
-                return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\usuarioController::newAction',  '_route' => 'usuario_new',);
-            }
-            not_usuario_new:
-
-            // usuario_show
-            if (preg_match('#^/usuario/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_usuario_show;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_show')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\usuarioController::showAction',));
-            }
-            not_usuario_show:
-
-            // usuario_edit
-            if (preg_match('#^/usuario/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_usuario_edit;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_edit')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\usuarioController::editAction',));
-            }
-            not_usuario_edit:
-
-            // usuario_delete
-            if (preg_match('#^/usuario/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if ($this->context->getMethod() != 'DELETE') {
-                    $allow[] = 'DELETE';
-                    goto not_usuario_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_delete')), array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\usuarioController::deleteAction',));
-            }
-            not_usuario_delete:
-
-        }
-
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
@@ -291,6 +480,26 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             }
 
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+        }
+
+        // index
+        if ($pathinfo === '/index') {
+            return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\DefaultController::indexAction',  '_route' => 'index',);
+        }
+
+        // resena
+        if ($pathinfo === '/resena') {
+            return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\DefaultController::resenaAction',  '_route' => 'resena',);
+        }
+
+        // novedades
+        if ($pathinfo === '/novedades') {
+            return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\DefaultController::novedadesAction',  '_route' => 'novedades',);
+        }
+
+        // login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'ELE\\EditorialBundle\\Controller\\DefaultController::loginAction',  '_route' => 'login',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

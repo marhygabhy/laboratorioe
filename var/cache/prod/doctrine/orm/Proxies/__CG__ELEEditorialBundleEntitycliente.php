@@ -58,16 +58,18 @@ class cliente extends \ELE\EditorialBundle\Entity\cliente implements \Doctrine\O
 
 
     /**
-     * 
+     * {@inheritDoc}
      * @return array
      */
     public function __sleep()
     {
+        $properties = array_merge(['__isInitialized__'], parent::__sleep());
+
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'id', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'nombre', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'correo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'usuario', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'clave', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'pais'];
+            $properties = array_diff($properties, array_keys($this->__getLazyProperties()));
         }
 
-        return ['__isInitialized__', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'id', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'nombre', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'correo', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'usuario', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'clave', '' . "\0" . 'ELE\\EditorialBundle\\Entity\\cliente' . "\0" . 'pais'];
+        return $properties;
     }
 
     /**
@@ -213,6 +215,39 @@ class cliente extends \ELE\EditorialBundle\Entity\cliente implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setApellido($apellido)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApellido', [$apellido]);
+
+        return parent::setApellido($apellido);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getApellido()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApellido', []);
+
+        return parent::getApellido();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setCorreo($correo)
     {
 
@@ -279,7 +314,40 @@ class cliente extends \ELE\EditorialBundle\Entity\cliente implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setPais($pais)
+    public function addSolicitud(\ELE\EditorialBundle\Entity\solicitud $solicitud)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addSolicitud', [$solicitud]);
+
+        return parent::addSolicitud($solicitud);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeSolicitud(\ELE\EditorialBundle\Entity\solicitud $solicitud)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeSolicitud', [$solicitud]);
+
+        return parent::removeSolicitud($solicitud);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSolicitud()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSolicitud', []);
+
+        return parent::getSolicitud();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPais(\ELE\EditorialBundle\Entity\pais $pais)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPais', [$pais]);
@@ -296,6 +364,28 @@ class cliente extends \ELE\EditorialBundle\Entity\cliente implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPais', []);
 
         return parent::getPais();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUser(\ELE\EditorialBundle\Entity\User $user)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
+
+        return parent::setUser($user);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUser()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
+
+        return parent::getUser();
     }
 
 }

@@ -30,14 +30,15 @@ class pais
     protected $descripcion;
 
     /**
-     * @ORM\OneToMany(targetEntity="cliente", mappedBy="pais")
+     * @ORM\OneToMany(targetEntity="user", mappedBy="pais")
      * @ORM\JoinColumn(name="id", referencedColumnName="pais_id", nullable=false)
      */
-    protected $cliente;
+    protected $user;
+
 
     public function __construct()
     {
-        $this->cliente = new ArrayCollection();
+        $this->user = new ArrayCollection();
     }
 
     public function __sleep()
@@ -80,41 +81,42 @@ class pais
     }
 
     /**
-     * Add cliente
+     * Add user
      *
-     * @param \ELE\EditorialBundle\Entity\cliente $cliente
+     * @param \ELE\EditorialBundle\Entity\user $user
      *
      * @return pais
      */
-    public function addCliente(\ELE\EditorialBundle\Entity\cliente $cliente)
+    public function addUser(\ELE\EditorialBundle\Entity\user $user)
     {
-        $this->cliente[] = $cliente;
+        $this->user[] = $user;
 
         return $this;
     }
 
     /**
-     * Remove cliente
+     * Remove user
      *
-     * @param \ELE\EditorialBundle\Entity\cliente $cliente
+     * @param \ELE\EditorialBundle\Entity\user $user
      */
-    public function removeCliente(\ELE\EditorialBundle\Entity\cliente $cliente)
+    public function removeUser(\ELE\EditorialBundle\Entity\user $user)
     {
-        $this->cliente->removeElement($cliente);
+        $this->user->removeElement($user);
     }
 
     /**
-     * Get cliente
+     * Get user
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCliente()
+    public function getUser()
     {
-        return $this->cliente;
+        return $this->user;
     }
 
     public function __toString()
     {
         return $this->getDescripcion();
     }
+
 }

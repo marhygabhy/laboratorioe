@@ -308,7 +308,7 @@ html , body{
     margin-top: 5px;
     font-size: 10px;
     min-width: inherit;
-    color: #C4CFDA
+    color: #2A3F54
 }
 .active a span.fa {
     text-align: right !important;
@@ -326,8 +326,8 @@ html , body{
 }
 .nav_menu {
     float: left;
-    background: #EDEDED;
-    border-bottom: 1px solid #D9DEE4;
+    background: #2A3F54;
+    border-bottom: 1px solid #2A3F54;
     margin-bottom: 10px;
     width: 100%;
     position: relative

@@ -22,14 +22,21 @@ class paisController extends Controller
      * @Route("/", name="pais_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $pais = $em->getRepository('EditorialBundle:pais')->findAll();
+        //$pais = $em->getRepository('EditorialBundle:pais')->findAll();
+        $dql = "SELECT u FROM EditorialBundle:pais u";
+        $pais = $em->createQuery($dql);
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $pais, $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('pais/index.html.twig', array(
-            'pais' => $pais,
+            'pagination' => $pagination,
         ));
     }
 
@@ -50,7 +57,9 @@ class paisController extends Controller
             $em->persist($pais);
             $em->flush();
 
-            return $this->redirectToRoute('pais_show', array('id' => $pais->getId()));
+            $this ->addFlash('mensaje', 'El pais ha sido creado');
+            return $this->redirectToRoute('pais_index');
+            //return $this->redirectToRoute('pais_show', array('id' => $pais->getId()));
         }
 
         return $this->render('pais/new.html.twig', array(
@@ -92,7 +101,9 @@ class paisController extends Controller
             $em->persist($pais);
             $em->flush();
 
-            return $this->redirectToRoute('pais_edit', array('id' => $pais->getId()));
+            $this ->addFlash('mensaje', 'El pais ha sido modificado');
+            return $this->redirectToRoute('pais_index');
+            //return $this->redirectToRoute('pais_edit', array('id' => $pais->getId()));
         }
 
         return $this->render('pais/edit.html.twig', array(
@@ -119,7 +130,9 @@ class paisController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('pais_index');
+        $this ->addFlash('mensaje', 'El pais ha sido eliminado');
+            return $this->redirectToRoute('pais_index');
+        //return $this->redirectToRoute('pais_index');
     }
 
     /**

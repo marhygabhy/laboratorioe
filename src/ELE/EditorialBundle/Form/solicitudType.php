@@ -16,15 +16,6 @@ class solicitudType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('cliente', EntityType::class, array(
-            'disabled'=>false,
-            'class' => 'EditorialBundle:cliente',
-            'label'      =>"Cliente",
-            'empty_data' => "0",
-            'placeholder'=>"Seleccione...",
-            'attr'       => array('class' => 'form-control ','placeholder'=>''),
-            'label_attr' => array('class' => 'control-label'),
-        ))
         ->add('libro', EntityType::class, array(
             'label' => 'Libro',
             'class' => 'EditorialBundle:libro',

@@ -27,7 +27,7 @@
             <!-- bootstrap-daterangepicker -->
             <link rel="stylesheet" href="{{ asset('bundles/public/vendors/bootstrap-daterangepicker/daterangepicker.css')}}">
             <!-- Custom Theme Style -->
-            <link rel="stylesheet" href="{{ asset('bundles/public/build/css/custom.min.css')}}">
+            <link rel="stylesheet" href="{{ asset('bundles/public/build/css/costomrojo.css')}}">
         {% endblock %}
 
     </head>
@@ -39,7 +39,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ path('index') }}" class="site_title"><img src="{{ asset('bundles/public/images/icono.png')}}" width="20px" heigth="20px" ><span> Lab. Educativo</span></a>
+              <a href="" class="site_title"><img src="{{ asset('bundles/public/images/icono.png')}}" width="20px" heigth="20px" ><span> Lab. Educativo</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -50,8 +50,14 @@
                 <img src="{{ asset('bundles/public/images/icono.png')}}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Bienvenido</span>
-                <h2>Usuario</h2>
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  <p>Bienvenido</p>
+                      {% if is_granted('ROLE_USER')%}
+                      <p>Cliente: {{ app.user.username }}</p>
+                      {% elseif is_granted('ROLE_ADMIN')%}
+                    <p>Administrador</p>
+                      {% endif %}
+                  {% endif %}
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -60,59 +66,78 @@
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
               <div class="menu_section">
               <hr />
-               <a href="{{ path('index') }}"><h3> Inicio </h3></a>
-                <ul class="nav side-menu">
-                  <li><a href="{{ path('resena') }}"><i class="fa fa-edit"></i> Reseña <span class="fa fa-chevron-down"></span></a>
-                  </li>
-                  <li><a href="{{ path('novedades') }}"><i class="fa fa-desktop"></i> Novedades <span class="fa fa-chevron-down"></span></a>
-                  </li>
-                </ul>
+               <a href="{{ path('portada') }}"><h3> Inicio </h3></a>
               </div>
+              {% endif %}
               <hr />
               <div class="menu_section">
-                <a href="{{ path('categoria_index') }}"><h3> Categorias </h3></a>                
+                  {% if is_granted('ROLE_ADMIN') %}
+                <a><h3> Configuración </h3></a>
+                {% endif %}                
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i> Actualidad <span class="fa fa-chevron-down"></span></a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                  <li><a><i class="fa fa-bug"></i> Categorias <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Nos[otros]</a></li>
-                      <li><a href="#">Quintaesencia</a></li>
+                      <li><a href="{{ path('categoria_index') }}">Ver Categorias</a></li>
+                      <li><a href="{{ path('categoria_new') }}">Crear Categoria</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-windows"></i> Infantil y Juvenil <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-windows"></i> Colecciones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Biblioteca de trabajo</a></li>
-                      <li><a href="#">El tren de Siveria</a></li>
+                      <li><a href="{{ path('coleccion_index') }}">Ver Colecciones</a></li>
+                      <li><a href="{{ path('coleccion_new') }}">Crear Coleccion</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-sitemap"></i> Educación y Pedagogía <span class="fa fa-chevron-down"></span></a>
+                  {% endif %}
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  <li><a><i class="fa fa-sitemap"></i> Libros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="#">Cuadernos de Educación</a></li>
-                        <li><a href="#">Cuadernos de Pedagogía</a></li>
-                        <li><a href="#">Proa</a></li>
-                        <li><a href="#">Leer y Escribir</a></li>
-                        <li><a href="#">Biblioteca de Educación de Adultos</a></li>
-                        <li><a href="#">Científicos Matemáticos</a></li>
-                        <li><a href="#">Claves para la Innovación Educativa</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                      <li><a href="{{ path('libro_index') }}">Ver Libros</a></li>
+                      <li><a href="{{ path('libro_new') }}">Agregar Libros</a></li>
+                      {% endif %}
+                      {% endif %}
+                      {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                      <li><a href="{{ path('solicitud_new') }}">Solicitar Libros</a></li>
+                      {% endif %}
                     </ul>
-                  </li>     
+                  </li> 
+                  {% if is_granted('ROLE_ADMIN') %}
+                  <li><a><i class="fa fa-bug"></i> Solicitudes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ path('solicitud_index') }}">Ver Solicitudes</a></li>
+                      <li><a href="{{ path('solicitud_new') }}">Agregar Solicitudes</a></li>
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-bug"></i> Paises <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ path('pais_index') }}">Ver Paises</a></li>
+                      <li><a href="{{ path('pais_new') }}">Agregar Paises</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bug"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ path('user_index') }}">Ver Usuarios</a></li>
+                      <li><a href="{{ path('user_new') }}">Crear Usuarios</a></li>
+                      {% endif %}
+                    </ul>
+                  </li>    
                 </ul>
-              </div>
-            <div class="menu_section">
-              <hr />
-               <a href="{{ path('coleccion_index') }}"><h3> Colecciones </h3></a>
               </div>
             </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
+            <!-- /menu footer buttons 
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Salir" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Salir" href="{{ path('logout') }}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
-            <!-- /menu footer buttons -->
+             /menu footer buttons -->
           </div>
         </div>
 
@@ -121,18 +146,23 @@
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                <a id="menu_toggle"><i class="fa fa-bars">|||</i></a>
               </div>
-
+              {% if is_granted('IS_AUTHENTICATED_FULLY') %}
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('bundles/public/images/icono.png')}}" alt="">Usuario
+                    <img src="{{ asset('bundles/public/images/icono.png')}}" alt="">
+                        {% if is_granted('ROLE_USER')%}
+                        <span>{{ app.user.username }}</span>
+                        {% elseif is_granted('ROLE_ADMIN')%}
+                        <span>{{ app.user.firstName}}</span>
+                        {% endif %}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
-                    <li><a href="{{ path('login') }}"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                    <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                    {% endif %}
                   </ul>
                 </li>
               </ul>
@@ -154,7 +184,7 @@
 
 
                 {% block body %}
-
+                
                 {% endblock %}                       
           </div>
         </div>

@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block title %} Ver Libros{% endblock %} 
 {% block body %}
+{% for flashMessage in app.session.flashbag.get('mensaje') %}
+<div class="alert alert-success" role="alert">
+    <div class="container"> {{ flashMessage }} </div>
+</div>
+{% endfor %}
+<h3 align="center"> Ver Libro  </h3>
+<hr />
     {% for msg in app.session.flashBag.get('success') %}
         <div class="alert alert-success"> {{ msg }} </div>       
     {% endfor %}
@@ -10,7 +17,7 @@
             {% for msg in msgs %}
                 <p>{{ msg }}</p>
             {% endfor %}
-        </div>
+        </div> 
     {% endfor %}
 
     <!-- page content -->
@@ -55,7 +62,7 @@
             </tr>
             <tr>
                 <th>Imagen</th>
-                <td><a href="{{ asset('uploads/libros/' ~ libro.ruta) }}">Ver Libro</a></td>
+                <td><a href="{{ asset('uploads/libros' ~ libro.ruta) }}">Ver Libro</a></td>
             </tr>
             <tr>
                 <th>Colección</th>

@@ -1,6 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block title %} Lista de Solicitudes {% endblock %}
-{% block body %}
+{% block body %} 
+{% for flashMessage in app.session.flashbag.get('mensaje') %}
+        <div class="alert alert-success" role="alert">
+            <div class="container"> {{ flashMessage }} </div>
+        </div>
+    {% endfor %}
 <h3 align="center"> Lista de Solicitudes  </h3>
 <hr />
     {% for msg in app.session.flashBag.get('success') %}
@@ -16,33 +21,33 @@
             {% endfor %}
         </div>
     {% endfor %}
-
+    Total registros: {{ pagination.getTotalItemCount }}
     <table id="datatable-fixed-header" class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Solicitud</th>
-                <th>Cliente</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Solicitud'|trans,'u.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Cliente'|trans,'u.cliente') }}</th>
                 <th>Libro</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-        {% for solicitud in solicitudes %}
+        {% for solicitud in pagination %}
         <tr>
                 <td><a href="{{ path('solicitud_show', { 'id': solicitud.id }) }}">{{ solicitud.id }}</a></td>
                 <td>{{ solicitud.cliente }}</td>
-                <td>{{ solicitud.libro }}</td>
+                <td></td>
                <td>
-                    <a href="{{ path('solicitud_show', { 'id': solicitud.id }) }}">
-                       <button type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver">  <i class="fa fa-eye"></i>  </button>
-                    </a>
-                    <a href="{{ path('solicitud_edit', { 'id': solicitud.id }) }}">
-                       <button type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar">  <i class="fa fa-pencil"></i>  </button>
-                    </a>
+                    <a href="{{ path('solicitud_show', { 'id': solicitud.id }) }}" class="btn btn-sm btn-info">Ver</a>
+                    <a href="{{ path('solicitud_edit', { 'id': solicitud.id }) }}" class="btn btn-sm btn-success">Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 <a href="{{ path('solicitud_new') }}"><input type="button" class="btn btn-primary" value="Crear Solicitud"></a>
+{# navegador de paginas#}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
 {% endblock %}

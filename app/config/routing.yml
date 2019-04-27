@@ -11,6 +11,21 @@ index:
     path:     /index
     defaults: { _controller: EditorialBundle:Default:index }
 
+portada:
+    path:     /portada
+    defaults: { _controller: EditorialBundle:Default:portada }
+
+login:
+    path:     /login
+    defaults: { _controller: EditorialBundle:Security:login }
+
+login_check:
+    path:     /login_check
+    defaults: { _controller: EditorialBundle:Security:loginCheck }
+    
+logout:
+    path:     /logout
+
 resena:
     path:     /resena
     defaults: { _controller: EditorialBundle:Default:resena }
@@ -18,7 +33,3 @@ resena:
 novedades:
     path:     /novedades
     defaults: { _controller: EditorialBundle:Default:novedades }
-
-login:
-    path:     /login
-    defaults: { _controller: EditorialBundle:Default:login }

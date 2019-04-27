@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block title %} Ver Colección {% endblock %} 
 {% block body %}
+{% for flashMessage in app.session.flashbag.get('mensaje') %}
+<div class="alert alert-success" role="alert">
+    <div class="container"> {{ flashMessage }} </div>
+</div>
+{% endfor %}
+<h3 align="center"> Ver Colecciones  </h3>
+<hr />
     {% for msg in app.session.flashBag.get('success') %}
         <div class="alert alert-success"> {{ msg }} </div>       
     {% endfor %}

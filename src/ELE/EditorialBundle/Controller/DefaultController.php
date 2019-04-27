@@ -16,6 +16,14 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/portada")
+     */
+    public function indexPortadaAction()
+    {
+        return $this->render('EditorialBundle:Default:portada.html.twig');
+    }
+
+    /**
     * @Route("/resena", name="resena")
     */
     public function resenaAction() 
@@ -29,13 +37,5 @@ class DefaultController extends Controller
     public function novedadesAction() 
     {
         return $this->render('EditorialBundle:Default:novedades.html.twig');
-    }
-
-    /**
-    * @Route("/login", name="login")
-    */
-    public function loginAction() 
-    {
-        return $this->render('EditorialBundle:Default:login.html.twig');
     }
 }

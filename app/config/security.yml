@@ -4,16 +4,32 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        our_db_provider:
+            entity:
+                class: EditorialBundle:User
+                property: username
 
     firewalls:
+        main:
+            anonymous: ~
+            http_basic: ~
+            form_login: 
+                login_path: login
+                check_path: login
+                username_parameter: _username
+                password_parameter: _password
+                # default_target_path: default_security_target
+                # always_use_default_target_path: true
+            logout:
+                path: /logout
+                target: /
+                
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
+        default:
             anonymous: ~
             # activate different ways to authenticate
 
@@ -22,3 +38,12 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+    encoders:
+        ELE\EditorialBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12
+    
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user_new, roles: IS_AUTHENTICATED_ANONYMOUSLY}

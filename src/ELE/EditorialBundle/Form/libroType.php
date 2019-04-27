@@ -51,9 +51,16 @@ class libroType extends AbstractType
     }
 
     /**
-   * @return string
-   */
-  public function getDescripcion() {
+    * @return string
+    */
+    public function getDescripcion() {
     return 'ele_editorialbundle_libro';
-  }
+    }
+
+    /**
+    * @return string
+    */
+    public function getTitulo() {
+        return 'ele_editorialbundle_libro';
+     }
 }
